@@ -80,11 +80,17 @@ WSGI_APPLICATION = 'quiz_proj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'english_quiz_test_db',
+        'USER': 'english_quiz_test_db_user',
+        'PASSWORD': 'oB5jtGK8Lgu1Ws5ObjlMllVIuHW1ots7',
+        'HOST': 'dpg-cphlqjol6cac73a3p070-a',
+        'PORT': 5432
     }
 }
+import dj_database_url
 
+DATABASES['default'] = dj_database_url.parse("postgres://english_quiz_test_db_user:oB5jtGK8Lgu1Ws5ObjlMllVIuHW1ots7@dpg-cphlqjol6cac73a3p070-a.oregon-postgres.render.com/english_quiz_test_db")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -110,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -127,6 +133,7 @@ STATICFILES_DIRS = [
 
     BASE_DIR/'static',
     BASE_DIR/'quizez'/'static'
+
 ]
 
 # Default primary key field type
